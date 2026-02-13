@@ -1,0 +1,68 @@
+
+* {
+    
+    touch-action: pan-y;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    background-image: url("imagens/planets-solar-system.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+h1 {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    margin-top: 140px;
+    background-color: rgb(23, 37, 102);
+    background-attachment: fixed;
+    width: 100%;
+}
+
+
+img {
+    max-width: 40%;
+    display: block;
+    height: auto;
+    margin: 0 auto;
+}
+
+p {
+    text-align: justify;
+    font-size: 20px;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: rgb(238, 238, 238);
+    width: 58%;
+}
+
+hr {
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+h2 {
+    margin-top: 648px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 31px;
+}
+
+button {
+    display: block;
+    height: auto;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+}
