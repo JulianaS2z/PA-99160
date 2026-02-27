@@ -1,6 +1,5 @@
 // FUNÇÃO
-
-function somar  ( a, b) {
+function somar(a, b) {
     return a + b
 }
 
@@ -14,15 +13,16 @@ const subtracao = function (a, b) {
 const subtração = subtracao(2, 3)
 console.log(`A subtração é: ${subtração}`)
 
-const multiplicação = function (a, b) {
+const multiplicacao = function (a, b) {
     return a * b
 }
 
-const multiplicaçãoResultado = multiplicação(2, 3)
-console.log(`A multiplicação é: ${multiplicaçãoResultado}`)
+const multiplicacaoResultado = multiplicacao(2, 3)
+console.log(`A multiplicação é: ${multiplicacaoResultado}`)
 
-const divisão = function (a, b) {
-console.log(`A divisão é: ${divisão(a, b)}`)    
-return a / b
-
+const divisao = function (a, b) {
+    return a / b
 }
+
+const divisaoResultado = divisao(6, 3)
+console.log(`A divisão é: ${divisaoResultado}`)
