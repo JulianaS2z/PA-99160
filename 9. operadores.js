@@ -11,7 +11,7 @@ console.log("\n==Comparando contéudo ==")
 console.log(`O valor ${idade1} é diferente a ${idade2}?`)
 console.log(idade1 != idade2)
 
-console.log("\n==Comparando tipo e contéudo ==") // comparação estrita nome e número
+console.log("\n==Comparando tipo e contéudo ==") // comparação escrita nome e número
 console.log(`O valor ${idade1} é igualdade a ${idade2}?`)
 console.log(idade1 === idade2)
 
