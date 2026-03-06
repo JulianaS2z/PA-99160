@@ -15,9 +15,9 @@ function gerarTabuada() {
     // Adiciona um título para tabuada.
 resultadoDiv.innerHTML +=`<h2> Tabuada do número: ${numero}</h2>`;
 // Laço de repetição para gerar a tabuada de 1 até 10.
-for(let i = 1; i <= 10; i++) {
-    let resultado = numero * i;
-    resultado.innerHTML += `<p> ${numero} x ${i} = ${resultado}</p>`;
+    for(let i = 1; i <= 10; i++) {
+        let resultado = numero * i;
+        resultadoDiv.innerHTML += `<p>${numero} x ${i} = ${resultado}</p>`;
     }
 }
 
