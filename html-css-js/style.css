@@ -1,0 +1,49 @@
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box; 
+}
+
+body {
+    background: linear-gradient(purple, white) no-repeat;
+    text-shadow: 3px 3px white;
+}
+
+h1{
+    text-align: center;
+    color: rgb(124, 42, 104);
+}
+
+h2{
+    color: rgb(150, 45, 100);
+    text-shadow: 3px 3px white;
+
+}
+
+.Caixa{
+    
+    width: 70%;
+    background-color:liner-gradient(white, red);
+    margin: 0% auto;
+    padding: 15px;
+    border-radius: 5%;
+    box-shadow: 10px, 10px, 5px, 5px, black ;
+    text-align: center;
+}
+
+.container{ 
+    width: 80%;
+    margin: 20px auto;
+    background-color: pink;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px black;
+
+}
+button:hover{
+    background-color: rgb(170, 140, 198);
+}
+
+.todos{
+    text-align: center;
+}
