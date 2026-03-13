@@ -11,77 +11,36 @@
 }
 
 body {
-    /* Cenário: Céu azul clássico do Mario */
+    /* Cenário: Céu azul clássico do Mario e chão de blocos */
     background-color: #87CEEB;
     height: 100vh;
+    margin: 0; 
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Evita barras de rolagem */
+    overflow: hidden; 
     
-    background-image: 
-        linear-gradient(to bottom, #87CEEB 80%, #222220 80%, #e4c368 100%), /* Chão */
-    background-position: 
-        0% 0%, 
-        10% 20%, 
-        40% 10%, 
-        80% 30%;
-    background-size: 
-        100% 100%, s
-        100px 100px, 
-        150px 150px, 
-        120px 120px;
+    background-image: linear-gradient(to bottom, #87CEEB 80%, #222220 80%, #222220 82%, #e4c368 82%); 
+    background-position: bottom;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
+}
+
+/* --- TELA (Alinhamento Geral) --- */
+.tela {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 /* LOGO */
 .logo img {
-  width: 350px;
-  margin-bottom: 20px;
+    width: 350px;
+    margin-bottom: 20px;
 }
 
-/* CONTAINER */
-.container {
-  width: 90%;
-  max-width: 600px;
-}
-
-/* CAIXA */
-.caixa {
-  background: #FFD700;
-  border: 8px solid black;
-  padding: 30px;
-  box-shadow: 8px 8px 0px black;
-}
-
-/* TITULO */
-h1 {
-  font-size: 16px;
-  text-align: center;
-  margin-bottom: 20px;
-  color: white;
-  text-shadow: 3px 3px 0 black;
-}
-
-/* IMAGENS */
-.imagens {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 20px;
-}
-
-.imagens img {
-  width: 200px;
-}
-
-/* INPUT */
-label {
-  font-size: 10px;
-  display: block;
-  margin-bottom: 8px;
-}
-
-/* --- CONTAINER PRINCIPAL (A CAIXA CENTRAL) --- */
+/* --- CONTAINER E CAIXA UNIFICADOS --- */
 .container {
     width: 90%;
     max-width: 600px;
@@ -91,10 +50,10 @@ label {
 .caixa {
     /* Estilizada como o famoso "Bloco de Interrogação (?)" */
     background-color: #ffed9c; /* Amarelo Ouro */
-    border: 8px solid #4e4e29; /* Borda grossa preta */
-    border-radius: 4px; /* Cantos levemente arredondados, mas rígidos */
+    border: 8px solid #4e4e29; /* Borda grossa preta/marrom */
+    border-radius: 4px;
     padding: 30px;
-    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.2); /* Sombra 2D rígida */
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.4); /* Sombra 2D rígida */
     position: relative;
 }
 
@@ -108,21 +67,60 @@ label {
     color: rgba(0, 0, 0, 0.1);
 }
 
-input {
-  width: 100%;
-  padding: 12px;
-  border: 4px solid black;
-  font-size: 12px;
-  margin-bottom: 15px;
+/* TITULO */
+h1 {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 3px 3px 0 black;
+    position: relative; /* Para ficar acima do '?' do fundo */
 }
 
+/* IMAGENS DA CAIXA */
+.imagens {
+    display: flex;
+    justify-content: center; /* Centraliza a imagem do Lucky Block */
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.imagens img {
+    width: 150px;
+}
+
+/* INPUTS */
+label {
+    font-size: 10px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Esconde o Input 2 inicialmente, conforme a lógica do JS */
+#Numero2 {
+    display: none;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 4px solid black;
+    font-size: 12px;
+    margin-bottom: 15px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #228B22; /* Fica verde quando selecionado */
+}
+
+/* BOTÃO ESTILO CANO VERDE */
 button#gerarBotao {
     display: block;
     width: 100%;
     padding: 15px;
     font-size: 14px;
     color: #FFFFFF;
-    /* Estilizado como um "Cano Verde" */
     background-color: #228B22; /* Verde Floresta */
     border: 6px solid #000000;
     border-radius: 4px;
@@ -131,13 +129,18 @@ button#gerarBotao {
     margin-bottom: 20px;
     transition: all 0.1s ease;
     text-transform: uppercase;
-    
-    /* Sombra rígida */
     box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.3);
 }
 
-button:hover {
-  background: #32CD32;
+button#gerarBotao:hover {
+    background: #32CD32;
+    transform: translateY(2px); /* Efeito de apertar o botão */
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+button#gerarBotao:active {
+    transform: translateY(6px);
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3);
 }
 
 strong {
@@ -151,10 +154,10 @@ strong {
 #produto,
 #maiorNumero,
 #menorNumero {
-  background: white;
-  border: 4px solid black;
-  padding: 10px;
-  margin-top: 8px;
-  font-size: 10px;
-  display: none;
+    background: white;
+    border: 4px solid black;
+    padding: 10px;
+    margin-top: 8px;
+    font-size: 10px;
+    display: none;
 }

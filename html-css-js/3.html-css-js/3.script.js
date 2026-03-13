@@ -2,8 +2,10 @@ let input1 = document.getElementById("N1");
 let input2 = document.getElementById("N2");
 
 let blocoNota2 = document.getElementById("Numero2");
-
 let botao = document.getElementById("gerarBotao");
+
+// Selecionamos a caixa inteira para animar
+let caixa = document.querySelector(".caixa"); 
 
 let divMedia = document.getElementById("media");
 let divSoma = document.getElementById("soma");
@@ -21,7 +23,7 @@ input1.addEventListener("input", function() {
   }
 });
 
-/* Calcular */
+/* Calcular e Animar */
 botao.addEventListener("click", function() {
   let n1 = parseFloat(input1.value);
   let n2 = parseFloat(input2.value);
@@ -31,17 +33,24 @@ botao.addEventListener("click", function() {
     return;
   }
 
+  // --- EFEITO DO PULINHO ---
+  caixa.classList.add("pulo-bloco"); // Adiciona a animação
+  setTimeout(() => {
+    caixa.classList.remove("pulo-bloco"); // Remove após 300ms para poder pular de novo depois
+  }, 300);
+  // -------------------------
+
   let soma = n1 + n2;
   let media = soma / 2;
   let produto = n1 * n2;
   let maior = Math.max(n1, n2);
   let menor = Math.min(n1, n2);
 
-  divMedia.innerHTML = "<strong>Média:</strong> " + media;
-  divSoma.innerHTML = "<strong>Soma:</strong> " + soma;
-  divProduto.innerHTML = "<strong>Produto:</strong> " + produto;
-  divMaior.innerHTML = "<strong>Maior número:</strong> " + maior;
-  divMenor.innerHTML = "<strong>Menor número:</strong> " + menor;
+  divMedia.innerHTML = `<strong>Média:</strong> ${media}`;
+  divSoma.innerHTML = `<strong>Soma:</strong> ${soma}`;
+  divProduto.innerHTML = `<strong>Produto:</strong> ${produto}`;
+  divMaior.innerHTML = `<strong>Maior número:</strong> ${maior}`;
+  divMenor.innerHTML = `<strong>Menor número:</strong> ${menor}`;
 
   divMedia.style.display = "block";
   divSoma.style.display = "block";
