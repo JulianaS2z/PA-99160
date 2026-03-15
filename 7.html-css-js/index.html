@@ -1,25 +1,48 @@
+<!-- Escreva um algoritmo que leia três notas de um aluno.
+Caso seja menor que O ou maior que 10, mostre a pergunta
+novamente.
+Após receber as notas dentro dos parâmetros.acima, calcule a média e
+verifique se o aluno está aprovado, recuperação ou reprovado
+considerando os seguintes critérios:
+Se a média for a partir de 7, aprovado;
+Se a média for entre 5 e 6,9, o aluno está em recuperação;
+Caso seja menor que 5, o aluno está reprovado. -->
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escolinha</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <link rel="stylesheet" href="style.css">
+    
     <h1>Boletim</h1>
+
     <div id="blocoNota1">
         <label for="nota1">Digite sua 1ª nota:</label>
         <input type="number" id="nota1" placeholder="Ex.: 7.0" step="0.1" min="0" max="10">
-        </div> 
-        <div id="blocoNota2">
+    </div> 
+    <br>
+    
+    <div id="blocoNota2">
         <label for="nota2"> Digite sua 2ª nota: </label>
         <input type="number" id="nota2" placeholder="Ex.: 7.0" step="0.1" min="0" max="10">
-            </div>    
-
-        <div id="blocoNota3">
+    </div>    
+    <br>
+    
+    <div id="blocoNota3">
         <label for="nota3"> Digite sua 3ª nota: </label>
         <input type="number" id="nota3" placeholder="Ex.: 7.0" step="0.1" min="0" max="10">
     </div>    
+    <br>
+
+    <button id="btnCalcular">Calcular Média</button>
+    <br><br>
+    <div id="resultado"></div>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -30,7 +30,7 @@ document.getElementById("gerarBotao").addEventListener("click", function() {
         targetDiv = divs[1];
         targetDiv.innerHTML = `<strong>STATUS: FACULTATIVO</strong><br>> Idade: ${idade} anos. O sistema permite voto opcional para esta classe.`;
     } 
-    else if (idade >= 18 && idade <= 65) {
+    else if (idade >= 18 && idade <= 65)ggg {
         targetDiv = divs[2];
         targetDiv.innerHTML = `<strong>STATUS: OBRIGATÓRIO</strong><br>> Idade: ${idade} anos. Participação eleitoral exigida por lei.`;
     } 
