@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: #f0f0f0;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    margin: 0;
+    
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+}
+/* === Contêiner do Conteúdo === */
+.container {
+    background-color: rgba(0, 59, 3, 0.85); /* Fundo escuro e translúcido */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(134, 228, 139, 0.5); /* Sombra para dar profundidade */
+    backdrop-filter: blur(10px); /* Efeito de vidro (frosted glass) */
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+    border: 1px solid rgba(230, 230, 230, 0.1); /* Borda sutil */
+    position:relative;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #fdfcfc; /* Um ciano vibrante para o título */
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px #2b2e27; /* Brilho neon no título */
+   
+}
+
+h3 {
+    font-size: 1.2em;
+    color: #ffffff; /* Um ciano vibrante para o título */ 
+    text-shadow: 0 0 10px #000000; /* Brilho neon no título */
+   
+}
+
+
+p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* === Lista de Exercícios === */
+.lista-exercicios {
+    list-style-type: none;
+    padding: 0;
+}
+
+.lista-exercicios li {
+    margin-bottom: 15px;
+}
+
+/* === Estilização dos Botões de Exercício === */
+.exercicio-btn {
+    display: flex;             /* Transforma o botão em uma caixinha flexível */
+    align-items: center;       /* Alinha o ícone e o texto no meio verticalmente */
+    justify-content: center;   /* Centraliza tudo no meio do botão */
+    gap: 12px;                 /* Dá um espacinho de 12px entre o ícone e o texto */
+    
+    background-color: transparent; 
+    color: #e7e7e7;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 15px 25px;
+    border: 2px solid #55ff55; /* Notei que sua borda é verde agora, ajuste a cor aqui se precisar! */
+    border-radius: 10px;
+    transition: all 0.3s ease; 
+    box-shadow: 0 4px 6px rgba(85, 255, 85, 0.2); 
+    cursor: pointer;
+}
+/* Efeito ao passar o mouse por cima (hover) */
+.exercicio-btn:hover {
+    background-color: #a9ca99; /* Preenche o fundo com a cor */
+    color: #14141d; /* Texto escuro para dar contraste no preenchimento */
+    box-shadow: 0 0 20px #02ffab, 0 0 40px #23612b; /* Efeito de brilho intenso */
+    transform: translateY(-3px); /* Pequeno pulo para cima */
+}
+
+.video-fundo {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh; 
+    object-fit: cover; 
+    z-index: -1; 
+  
+}
+.verdinho {
+    position: absolute; /* Diz que ele flutua fora do fluxo normal */
+    
+    /* VALORES PARA AJUSTAR - Varia com a imagem! */
+    top: -190px;    /* Levanta o personagem. Um valor negativo faz ele subir. */
+                    /* Aumente ou diminua até ele "sentar" na borda superior. */
+    right: 400px;    /* Afasta o personagem da borda direita. */
+                    /* Mude para 'left: 30px;' se preferir que ele sente na esquerda. */
+    width: 300px;   /* Define o tamanho do personagem. Ajuste como preferir! */
+    /* Garante que o personagem fique na frente do container, mas atrás do título */
+    z-index: 1;     
+}
+
+
+
