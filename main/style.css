@@ -26,7 +26,7 @@ body {
     text-align: center;
     width: 90%;
     max-width: 600px;
-    border: 1px solid rgba(230, 230, 230, 0.1); /* Borda sutil */
+    border: 3px solid rgba(0, 0, 0, 0.1); /* Borda sutil */
     position:relative;
 }
 
@@ -72,13 +72,13 @@ p {
     background-color: transparent; 
     color: #e7e7e7;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 500;
     padding: 15px 25px;
-    border: 2px solid #55ff55; /* Notei que sua borda é verde agora, ajuste a cor aqui se precisar! */
+    border: 3px solid #ffffff; 
     border-radius: 10px;
     transition: all 0.3s ease; 
-    box-shadow: 0 4px 6px rgba(85, 255, 85, 0.2); 
+    box-shadow: 0 4px 6px rgba(3, 3, 3, 0.2); 
     cursor: pointer;
 }
 /* Efeito ao passar o mouse por cima (hover) */
@@ -103,11 +103,11 @@ p {
     position: absolute; /* Diz que ele flutua fora do fluxo normal */
     
     /* VALORES PARA AJUSTAR - Varia com a imagem! */
-    top: -190px;    /* Levanta o personagem. Um valor negativo faz ele subir. */
+    top: -185px;    /* Levanta o personagem. Um valor negativo faz ele subir. */
                     /* Aumente ou diminua até ele "sentar" na borda superior. */
-    right: 400px;    /* Afasta o personagem da borda direita. */
+    right: 410px;    /* Afasta o personagem da borda direita. */
                     /* Mude para 'left: 30px;' se preferir que ele sente na esquerda. */
-    width: 300px;   /* Define o tamanho do personagem. Ajuste como preferir! */
+    width: 290px;   /* Define o tamanho do personagem. Ajuste como preferir! */
     /* Garante que o personagem fique na frente do container, mas atrás do título */
     z-index: 1;     
 }
