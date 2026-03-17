@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.tela-fundo-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.8); /* Mais escuro para destacar o "console" */
+}
+
+/* O Corpo do Console Portátil */
+.console-body {
+    background-color: #3d393d; /* Cor cinza clássica de console */
+    padding: 30px;
+    border-radius: 20px 20px 60px 20px; /* Canto inferior arredondado estilo Gameboy */
+    border: 8px solid #fff6ff;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 0 20px #252424, 0 0 30px #ffffff; /* Efeito de brilho intenso */
+}
+
+/* Tela do Console */
+.game-screen {
+    background-color: #537a44; /* Cor verde clássica da tela do Gameboy */
+    border: 10px solid #211e22;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    min-height: 200px;
+    box-shadow: inset 0 0 10px rgba(247, 247, 247, 0.5);
+    box-shadow: 0 0 20px #d383ee, 0 0 40px #8b8484; /* Efeito de brilho intenso */
+    
+}
+
+h2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    color: #000000;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+/* Campos de Entrada Estilizados */
+.input-group {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+label {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.5rem;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    background: rgba(0,0,0,0.1);
+    border: 2px solid #306230;
+    padding: 5px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    color: #0f380f;
+    outline: none;
+}
+
+/* Botões do Console */
+.controls {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#gerarBotao {
+    background-color: #a91152; /* Cor dos botões A/B */
+    color: white;
+    border: none;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    cursor: pointer;
+    box-shadow: 0 6px 0 #7a0d3c;
+    transition: 0.1s;
+}
+
+#gerarBotao:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #7a0d3c;
+}
+
+/* Área do Resultado */
+#resultadoMedia {
+    margin-top: 15px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    line-height: 1.5;
+    min-height: 40px;
+}
+
+.aprovado { color: #00ff00; text-shadow: 2px 2px #000; }
+.reprovado { color: #ff0000; text-shadow: 2px 2px #000; }
+
+a {
+    color: #eee;
+    text-decoration: none;
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 20px;
+}

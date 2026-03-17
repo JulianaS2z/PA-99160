@@ -1,29 +1,23 @@
 function resultadoMedia() {
-    // 1. Captura os elementos e valores
     let caixaResultado = document.getElementById("resultadoMedia");
-    let nomeAluno = document.getElementById("nomeInput").value;
-    let valorNota1 = Number(document.getElementById("nota1").value);
-    let valorNota2 = Number(document.getElementById("nota2").value);
-    let valorNota3 = Number(document.getElementById("nota3").value);
+    let nomeAluno = document.getElementById("nomeInput").value || "Player 1";
+    let v1 = Number(document.getElementById("nota1").value);
+    let v2 = Number(document.getElementById("nota2").value);
+    let v3 = Number(document.getElementById("nota3").value);
 
-    // 2. Valida se as notas estão entre 0 e 10
-    if (valorNota1 > 10 || valorNota1 < 0 || valorNota2 > 10 || valorNota2 < 0 || valorNota3 > 10 || valorNota3 < 0 ) {
-        caixaResultado.innerHTML = "Por favor, digite notas válidas entre 0 a 10!"; 
+    if (v1 > 10 || v1 < 0 || v2 > 10 || v2 < 0 || v3 > 10 || v3 < 0 ) {
+        caixaResultado.innerHTML = "<span style='color: darkred;'>ERRO: NOTA INVÁLIDA!</span>"; 
         return;  
     }
     
-    // 3. Faz o cálculo da média
-    let media = (valorNota1 + valorNota2 + valorNota3) / 3;
+    let media = (v1 + v2 + v3) / 3;
+    let msg = ""; 
     
-    // 4. Descobre se está aprovado ou reprovado
-    let situacao = ""; 
     if (media >= 7.0) {
-        situacao = "Aprovado(a)";
+        msg = `<span class="aprovado">LEVEL UP!<br>Média: ${media.toFixed(1)}<br>Boa, ${nomeAluno}!</span>`;
     } else {
-        situacao = "Reprovado(a)";
+        msg = `<span class="reprovado">GAME OVER!<br>Média: ${media.toFixed(1)}<br>Estude mais!</span>`;
     }
 
-    // 5. Junta tudo e mostra na tela!
-    // Usamos a variável caixaResultado para alterar o HTML
-    caixaResultado.innerHTML = `Olá, ${nomeAluno}! Sua média foi ${media.toFixed(1)}. Status: ${situacao}`;
+    caixaResultado.innerHTML = msg;
 }
