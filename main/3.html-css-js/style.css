@@ -1,0 +1,150 @@
+/* === Reset e Configuração Básica === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive; /* Fonte do Mario */
+    color: #f0f0f0;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    margin: 0;
+}
+
+/* === Vídeo de Fundo === */
+.video-fundo {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh; 
+    object-fit: cover; 
+    z-index: -1; 
+}
+
+/* === Caixa Principal (Contêiner) === */
+.caixa {
+    /* Gradiente Marrom estilo "Tijolo do Mario" */
+    background: linear-gradient(135deg, #a1e7bc 0%, #ff5454 100%);
+    border: 6px solid #228B22; /* Borda Verde estilo "Cano" */
+    border-radius: 15px;
+    padding: 40px 30px;
+    text-align: center;
+    position: relative; /* Importante para os GIFs flutuarem sobre ela */
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.6); /* Sombra pesada 3D */
+    margin-top: 50px; /* Espaço para os GIFs em cima */
+}
+
+/* === Posicionamento dos GIFs === */
+.gif-mario {
+    position: absolute;
+    top: -150px; /* Senta o Mario no topo da caixa */
+    right: 10px;
+    height: 200px; /* Ajuste o tamanho conforme seu GIF */
+}
+
+.gif-bloco {
+    position: absolute;
+    left: 82%;
+    top: -210px; 
+    transform: translateX(-50%); /* Centraliza exatamente no meio */
+    height: 50px;
+    height: 150px;
+}
+
+/* === Textos e Inputs === */
+h1 {
+    font-size: 20px;
+    color: #FF3333; /* Vermelho Mario */
+    text-shadow: 3px 3px 0px #000;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+label {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: #F8D820; /* Amarelo Moeda */
+    text-shadow: 2px 2px 0px #000;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    text-align: center;
+    background-color: #fff;
+    border: 4px solid #000;
+    border-radius: 5px;
+}
+
+/* === Botão === */
+button {
+    width: 100%;
+    padding: 15px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    /* Gradiente Verde estilo Cano */
+    background: linear-gradient(to bottom, #32CD32 0%, #006400 100%);
+    color: white;
+    border: 4px solid #000;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0px 5px 0px #000; /* Sombra embaixo para dar ideia de botão físico */
+    transition: all 0.1s;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+button:active {
+    transform: translateY(5px); /* Efeito de clique afundando */
+    box-shadow: 0px 0px 0px #000;
+}
+
+/* === Resultados === */
+.escondido {
+    display: none;
+}
+
+.resultado {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    margin: 5px 0;
+    border: 2px dashed #F8D820; /* Borda tracejada amarela */
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* === Botão Voltar === */
+.btn-voltar {
+    display: inline-block;
+    color: #FFF;
+    text-decoration: none;
+    font-size: 10px;
+    margin-top: 20px;
+    background-color: #FF0000;
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 5px;
+}
+
+/* === Animação de Pulo do Bloco (Chamada pelo JS) === */
+@keyframes pulinho {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+    100% { transform: translateY(0); }
+}
+
+.pulo-bloco {
+    animation: pulinho 0.3s ease-out;
+}

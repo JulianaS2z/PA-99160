@@ -1,6 +1,7 @@
 document.getElementById("gerarBotao").addEventListener("click", function() {
     const inputIdade = document.getElementById("idadeInput");
-    const idade = parseInt(inputIdade.value);
+    const idadeText = inputIdade.value;
+    const idade = parseInt(idadeText);
     
     // Lista de todas as divs de resultado para facilitar o reset
     const divs = [
@@ -14,31 +15,32 @@ document.getElementById("gerarBotao").addEventListener("click", function() {
     divs.forEach(div => div.style.display = "none");
 
     // 2. Validação básica
-    if (isNaN(idade) || idade < 0 || inputIdade.value === "") {
-        alert("ERRO CRÍTICO: Insira uma idade válida no terminal.");
+    if (isNaN(idade) || idade < 0 || idadeText === "") {
+        // Mensagem de erro séria no terminal
+        alert("> ERRO DE SISTEMA [ID: ERR-09]: DADOS DE IDADE INCOMPLETOS. INSIRA UM VALOR NUMERICO VALIDO.");
         return;
     }
 
-    // 3. Lógica de Verificação
+    // 3. Lógica de Verificação (Textos traduzidos para o tema Wayne Tech)
     let targetDiv;
 
     if (idade < 16) {
         targetDiv = divs[0];
-        targetDiv.innerHTML = `<strong>STATUS: ACESSO NEGADO</strong><br>> Usuário abaixo da idade mínima permitida para votação.`;
+        targetDiv.innerHTML = `> [ANALISE CONCLUIDA]<br><strong>STATUS: ACESSO NEGADO // INELEGIVEL</strong><br>> Motivo: Sujeito abaixo da matriz de idade legal para votacao.`;
     } 
     else if (idade >= 16 && idade <= 17) {
         targetDiv = divs[1];
-        targetDiv.innerHTML = `<strong>STATUS: FACULTATIVO</strong><br>> Idade: ${idade} anos. O sistema permite voto opcional para esta classe.`;
+        targetDiv.innerHTML = `> [ANALISE CONCLUIDA]<br><strong>STATUS: FACULTATIVO // PARTICIPACAO OPCIONAL</strong><br>> Idade: ${idade} anos. O protocolo permite participacao opcional para esta faixa.`;
     } 
-    else if (idade >= 18 && idade <= 65)ggg {
+    else if (idade >= 18 && idade < 65) {
         targetDiv = divs[2];
-        targetDiv.innerHTML = `<strong>STATUS: OBRIGATÓRIO</strong><br>> Idade: ${idade} anos. Participação eleitoral exigida por lei.`;
+        targetDiv.innerHTML = `> [ANALISE CONCLUIDA]<br><strong>STATUS: OBRIGATORIO // PARTICIPACAO EXIGIDA</strong><br>> Idade: ${idade} anos. Participacao ativa exigida pelas diretrizes legais.`;
     } 
-    else {
+    else if (idade >= 65) {
         targetDiv = divs[3];
-        targetDiv.innerHTML = `<strong>STATUS: FACULTATIVO (SÊNIOR)</strong><br>> Idade: ${idade} anos. Voto opcional detectado para nível sênior.`;
-    }
+        targetDiv.innerHTML = `> [ANALISE CONCLUIDA]<br><strong>STATUS: FACULTATIVO // PARTICIPACAO OPCIONAL</strong><br>> Idade: ${idade} anos. Status especial ativo. Participacao opcional permitida.`;
+    } 
 
-    // 4. Exibe o resultado com um pequeno delay para simular "processamento"
+    // 4. Exibe o resultado na tela
     targetDiv.style.display = "block";
 });

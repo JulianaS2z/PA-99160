@@ -11,24 +11,42 @@ maiores que 65 não são obrigados a votar -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Eleitoral // TECH</title>
+    <title>Wayne Enterprises // Terminal Eleitoral</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="Tela">
-        <h2>SISTEMA DE VOTO</h2>
-            <label for="idadeInput"> Inserir Idade </label>
-            <input type="number" id="idadeInput" placeholder="00" min="0">
+    
+    <div class="main-container">
+        <header class="console-header">
+            <span class="bat-prefix">> </span><h1>BAT-COMPUTADOR_V3.1 // MATRIZ_SEGURA</h1>
+            <p>BD_ELEICOES_WAYNE [STATUS: ONLINE]</p>
+        </header>
+
+        <main class="secure-console">
+            <h2>> INSERIR_IDADE_DO_SUJEITO_PARA_VALIDACAO</h2>
+            
+            <div class="input-panel">
+                <label for="idadeInput">> IDADE_DO_SUJEITO : <span class="blink">_</span></label>
+                <input type="number" id="idadeInput" placeholder="> 00" min="0">
+                <button id="gerarBotao">[EXEC_VALIDAR]</button>
+            </div>
+            
+            <div id="menoresde16" class="resultado result-error"></div>
+            <div id="entre16e17" class="resultado result-facultative"></div>
+            <div id="maior" class="resultado result-mandatory"></div>
+            <div id="maior65" class="resultado result-facultative"></div>
+        </main>
+
+        <div class="navigation-panel">
+            <a href="../index.html" class="btn-voltar">[RETURN_TO_MAIN_MENU] <style color = "white"> </style></a>
         </div>
 
-
-
-        <button id="gerarBotao">Processar Dados</button>
-        
-        <div id="menoresde16" class="resultado alerta-vermelho"></div>
-        <div id="entre16e17" class="resultado alerta-amarelo"></div>
-        <div id="maior" class="resultado alerta-verde"></div>
-        <div id="maior65" class="resultado alerta-azul"></div>
+        <footer class="console-footer">
+            <p>> PROPERTY_OF_WAYNE_ENTERPRISES. UNAUTHORIZED_ACCESS_PENALIZED.</p>
+        </footer>
     </div>
 
     <script src="script.js"></script>

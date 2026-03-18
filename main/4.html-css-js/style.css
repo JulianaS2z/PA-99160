@@ -1,0 +1,182 @@
+/* === Reset e Fonte Tática === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Share Tech Mono', monospace; /* Fonte estilo computador/tactical */
+}
+
+body {
+    background-color: #000000; /* Fundo totalmente preto */
+    color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Evita rolar a página */
+}
+
+/* === Imagem de Fundo (Se você tiver a imagem) === */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('imagens/batman.fundo.jpg'); /* O caminho da sua imagem */
+    background-size: cover;
+    background-position: center;
+
+    z-index: -1;
+}
+
+/* === Contêiner Principal === */
+.main-container {
+    width: 90%;
+    max-width: 750px;
+    background-color: rgba(10, 12, 18, 0.85); /* Fundo tático translúcido */
+    border: 2px solid #ffc60b; /* Borda Ciano Fria */
+    border-radius: 5px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(27, 27, 24, 0.3); /* Brilho neon sutil */
+}
+
+/* === Cabeçalho e Título === */
+.console-header {
+    text-align: left;
+    margin-bottom: 30px;
+    border-bottom: 2px solid rgba(255, 236, 154, 0.3);
+    padding-bottom: 10px;
+}
+
+.bat-prefix {
+    color: #fffb00; /* Ciano brilhante */
+}
+
+.console-header h1 {
+    display: inline;
+    font-size: 1.8em;
+    color: #ffffff;
+    text-shadow: 0 0 10px #e4e71a;
+}
+
+.console-header p {
+    color: #8090a0; /* Cinza azulado frio */
+    font-size: 0.9em;
+}
+
+/* === Painel de Entrada === */
+.secure-console h2 {
+    font-size: 1.2em;
+    color: #f0f0f0;
+    margin-bottom: 20px;
+}
+
+.input-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+label {
+    font-size: 1em;
+    color: #eeff00;
+}
+
+/* Efeito de piscar o sublinhado */
+.blink {
+    animation: blinker 1s linear infinite;
+}
+@keyframes blinker {
+    50% { opacity: 0; }
+}
+
+input {
+    background-color: #0d1117; /* Fundo escuro */
+    border: 1px solid rgba(238, 255, 4, 0.5);
+    color: #fffb00;
+    padding: 15px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    text-align: left;
+}
+
+input:focus {
+    outline: none;
+    border-color: #fbff00;
+    box-shadow: 0 0 10px rgba(0, 204, 204, 0.5);
+}
+
+/* === Botão Tático === */
+button {
+    background-color: transparent;
+    border: 2px solid #fbff00;
+    color: #eeff00;
+    padding: 15px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    background-color: #000000;
+    color: #0a0c12;
+    box-shadow: 0 0 20px rgba(255, 251, 2, 0.7);
+}
+
+/* === Resultados (Estilo de Erro/Acesso Tático) === */
+.resultado {
+    display: none; /* Começa escondido */
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border-left: 5px solid; /* Usamos a borda esquerda para indicar o status */
+    line-height: 1.6;
+    font-size: 0.95em;
+}
+
+/* [STATUS: DENIED] // Acesso Negado (Roxo Escuro e Frio) */
+.result-error {
+    border-color: #ffffff; /* Roxo escuro */
+    color: #e0d0f0;
+}
+.result-error strong { color: #bf80ff; }
+
+/* [STATUS: FACULTATIVE] // Voto Opcional (Ciano Frio) */
+.result-facultative {
+    border-color: #00cccc;
+    color: #f0f0f0;
+}
+.result-facultative strong { color: #00ffff; }
+
+/* [STATUS: MANDATORY] // Voto Obrigatório (Verde Tático Escuro) */
+.result-mandatory {
+    border-color: #1a7c33; /* Verde tático escuro */
+    color: #e0f0e0;
+}
+.result-mandatory strong { color: #00cc66; }
+
+/* === Rodapé === */
+.console-footer {
+    text-align: left;
+    margin-top: 30px;
+    border-top: 2px solid rgba(0, 204, 204, 0.3);
+    padding-top: 10px;
+    font-size: 0.8em;
+    color: #607080;
+}
+
+.btn-voltar:hover {
+    background-color: #00cccc;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 204, 204, 0.5);
+    transform: translateY(-2px); /* Pequeno pulo para cima no hover */
+}
