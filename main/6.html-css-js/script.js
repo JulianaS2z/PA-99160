@@ -1,4 +1,5 @@
-let botao = document.getElementById("resultado");
+// Mudamos o ID do botão para não conflitar com a div de resultado!
+let botao = document.getElementById("btn-confirmar");
 
 botao.addEventListener("click", function () {
     
@@ -10,12 +11,12 @@ botao.addEventListener("click", function () {
 
     // Validação básica para evitar erros
     if (!codigo || anoNascimento <= 0 || tempoTrabalho < 0) {
-        caixaResultado.innerHTML = "Por favor, preencha todos os campos corretamente.";
+        caixaResultado.innerHTML = "Por obséquio, preencha todos os campos do documento corretamente.";
+        caixaResultado.style.display = "block";
         return;
     }
 
-    // 2. O exercício pede o ano de nascimento, então precisamos calcular a idade
-    // O comando new Date().getFullYear() pega automaticamente o ano em que estamos!
+    // 2. Cálculo de Idade
     let anoAtual = new Date().getFullYear();
     let idade = anoAtual - anoNascimento;
 
@@ -23,17 +24,19 @@ botao.addEventListener("click", function () {
     let mensagem = "";
     
     if (idade >= 65 || tempoTrabalho >= 30) {
-        mensagem = "Requerer aposentadoria";
+        mensagem = "Concedido! Requerer aposentadoria.";
     } else {
-        mensagem = "Não requerer aposentadoria";
+        mensagem = "Negado! Não requerer aposentadoria.";
     }
 
-    // 4. Mostrando tudo na tela conforme o enunciado exigiu
+    // 4. Mostrando tudo na tela
     caixaResultado.innerHTML = `
-        <strong>Código do Empregado:</strong> ${codigo} <br>
-        <strong>Idade:</strong> ${idade} anos <br>
-        <strong>Tempo de Trabalho:</strong> ${tempoTrabalho} anos <br><br>
-        <strong>Status:</strong> ${mensagem}
+        <strong>Matrícula Registrada:</strong> ${codigo} <br>
+        <strong>Idade do Cidadão:</strong> ${idade} anos <br>
+        <strong>Tempo de Serviço:</strong> ${tempoTrabalho} anos <br><br>
+        <strong>Veredito Final:</strong> ${mensagem}
     `;
-
+    
+    // Faz a div aparecer na tela do pergaminho
+    caixaResultado.style.display = "block";
 });

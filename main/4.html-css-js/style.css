@@ -126,9 +126,9 @@ button {
 }
 
 button:hover {
-    background-color: #000000;
+    background-color: #ffffff;
     color: #0a0c12;
-    box-shadow: 0 0 20px rgba(255, 251, 2, 0.7);
+    box-shadow: 0 0 20px rgba(221, 235, 235, 0.7);
 }
 
 /* === Resultados (Estilo de Erro/Acesso Tático) === */
@@ -145,7 +145,7 @@ button:hover {
 
 /* [STATUS: DENIED] // Acesso Negado (Roxo Escuro e Frio) */
 .result-error {
-    border-color: #ffffff; /* Roxo escuro */
+    border-color: #9400d3; /* Roxo escuro */
     color: #e0d0f0;
 }
 .result-error strong { color: #bf80ff; }
@@ -168,15 +168,15 @@ button:hover {
 .console-footer {
     text-align: left;
     margin-top: 30px;
-    border-top: 2px solid rgba(0, 204, 204, 0.3);
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
     padding-top: 10px;
     font-size: 0.8em;
-    color: #607080;
+    color: #ffffff;
 }
 
 .btn-voltar:hover {
-    background-color: #00cccc;
-    color: #ffffff;
-    box-shadow: 0 0 15px rgba(0, 204, 204, 0.5);
+    background-color: #fffc50;
+    color: #0a0c12;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
     transform: translateY(-2px); /* Pequeno pulo para cima no hover */
 }

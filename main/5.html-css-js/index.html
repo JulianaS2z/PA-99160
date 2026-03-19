@@ -1,24 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hortifruti da Juju // iPad OS</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>Apple here</title>
 </head>
 <body>
-    <div class= "Tela">
-        <h2>Hortifruti da Juju</h2>
-        <label for="qtdmacas">Digite a quantidade de maçãs que deseja: </label>
-        <input type="number" id="qtdmacas" placeholder="00" min="0">
+    
+    <img src="imagens/apple.png.jpg" alt="Fundo" class="imagem-fundo-externa">
 
-    <button id = "gerarbotao">confirmar</button>
-    <div id="resultado"> </div>
-<br>
-<a href="../index.html">⬅️ Voltar para o Menu Principal</a>
+    <div class="ipad-hardware">
+        
+        <div class="ipad-screen">
+            
+            <div class="status-bar">
+                <span class="time">09:41</span>
+                <span class="icons">📶 100% 🔋</span>
+            </div>
 
-<script src="script.js"></script>
+            <main class="app-layout">
+                <div class="app-sidebar">
+                    <img src="imagens/apple.logo.png" alt="Logo Apple" class="apple-logo-img">
+                    <h2>Hortifruti da Juju</h2>
+                    <div class="tabela-precos">
+                        <p><strong>Menos de 12 unid:</strong><br>R$ 1,30 cada</p>
+                        <hr>
+                        <p><strong>A partir de 12 unid:</strong><br>R$ 1,00 cada</p>
+                    </div>
+                </div>
+
+                <div class="app-content">
+                    <div class="formulario-compra">
+                        <label for="qtdmacas">Digite a quantidade de maçãs:</label>
+                        <input type="number" id="qtdmacas" placeholder="Ex: 12" min="0">
+                        
+                        <button id="gerarbotao">Confirmar Pedido</button>
+                        
+                        <div id="resultado" class="escondido"></div>
+                    </div>
+                </div>
+            </main>
+
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+
+    <a href="../index.html" class="btn-voltar-menu">← Voltar para o Menu Principal</a>
+
+    <script src="script.js"></script>
 </body>
 </html>
-
-<!-- Fazer um código com uma arvoré com maças -->

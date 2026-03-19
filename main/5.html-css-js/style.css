@@ -1,0 +1,209 @@
+/* === Reset e Fonte da Apple === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #2c0000; /* Fundo escuro atrás do iPad */
+    overflow: hidden;
+}
+
+/* === Imagem de Fundo Borrada (Atrás do aparelho) === */
+.imagem-fundo-externa {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.4;
+    filter: blur(10px); /* Borra a imagem no fundo geral */
+}
+
+/* === MOLDURA DO IPAD (HARDWARE) === */
+.ipad-hardware {
+    width: 900px; /* Largura do iPad deitado */
+    height: 650px; /* Altura do iPad deitado */
+    background-color: #111; /* Borda preta de vidro */
+    border-radius: 40px; /* Cantos arredondados do aparelho */
+    padding: 25px; /* Espessura da borda preta */
+    box-shadow: 
+        0 30px 60px rgba(0,0,0,0.6), /* Sombra projetada na mesa */
+        inset 0 0 0 4px #555; /* Bordinha de alumínio ao redor do vidro */
+    position: relative;
+    max-width: 95vw;
+}
+
+/* === TELA DO IPAD === */
+.ipad-screen {
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f7; /* Cor de fundo padrão da Apple */
+    background-image: url('imagens/apple.png.jpg'); /* A sua imagem agindo como papel de parede do iPad! */
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px; /* Cantos arredondados da tela interna */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* === Barra de Status Superior (Hora e Bateria) === */
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 25px;
+    font-size: 14px;
+    font-weight: 600;
+    color: white; /* Texto branco para contrastar com seu fundo vermelho */
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Sombra para ler bem em cima da imagem */
+    z-index: 10;
+}
+
+/* === App Dividido (Estilo iPad) === */
+.app-layout {
+    flex: 1;
+    display: flex;
+    padding: 30px;
+    gap: 30px;
+    align-items: center;
+}
+
+/* Lado Esquerdo (Sidebar) */
+.app-sidebar {
+    flex: 0.8;
+    background: rgba(255, 255, 255, 0.85); /* Vidro embaçado */
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border: 1px solid rgba(255,255,255,0.4);
+}
+
+.apple-logo-img {
+    width: 80px;
+    margin-bottom: 20px;
+}
+
+.app-sidebar h2 {
+    color: #1d1d1f;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.tabela-precos {
+    background: rgba(0,0,0,0.05);
+    padding: 15px;
+    border-radius: 15px;
+    color: #555;
+    font-size: 14px;
+}
+
+.tabela-precos hr {
+    margin: 10px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+/* Lado Direito (Conteúdo Principal) */
+.app-content {
+    flex: 1.2;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 50px 40px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.formulario-compra label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #1d1d1f;
+    font-size: 18px;
+}
+
+.formulario-compra input {
+    width: 100%;
+    padding: 20px;
+    font-size: 18px;
+    border-radius: 15px;
+    border: 1px solid #d2d2d7;
+    margin-bottom: 25px;
+    background-color: #f5f5f7;
+}
+
+.formulario-compra input:focus {
+    outline: none;
+    border-color: #ff3b30;
+}
+
+button {
+    width: 100%;
+    background: #ff3b30;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #e02a20;
+}
+
+/* === Resultado Oculto === */
+.escondido {
+    display: none;
+}
+
+#resultado {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #fff2f2;
+    border-radius: 15px;
+    border-left: 5px solid #ff3b30;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #1d1d1f;
+}
+
+/* === Barra Inferior do iOS === */
+.home-indicator {
+    width: 140px;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+/* === Botão Voltar Externo === */
+.btn-voltar-menu {
+    margin-top: 25px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    background: rgba(0,0,0,0.5);
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+.btn-voltar-menu:hover {
+    background: rgba(0,0,0,0.8);
+}

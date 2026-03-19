@@ -16,6 +16,14 @@ body {
     background-position: center; 
     background-attachment: fixed; 
 }
+
+.logo-canto {
+    position: absolute;     /* Solta o elemento e o fixa em relação à tela */
+    top: 30px;              /* Distância do topo da tela (ajuste como quiser) */
+    left: 30px;             /* Distância da lateral esquerda (ajuste como quiser) */
+    width: 80px;            /* Tamanho do robozinho (ajuste conforme sua imagem) */
+    z-index: 100;           /* Garante que o robozinho fique por cima de tudo, inclusive do efeito Matrix */
+}
 /* === Contêiner do Conteúdo === */
 .container {
     background-color: rgba(0, 59, 3, 0.85); /* Fundo escuro e translúcido */
