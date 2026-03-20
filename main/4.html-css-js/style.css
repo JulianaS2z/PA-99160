@@ -3,21 +3,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Share Tech Mono', monospace; /* Fonte estilo computador/tactical */
+    font-family: 'Share Tech Mono', monospace;
 }
 
 body {
-    background-color: #000000; /* Fundo totalmente preto */
+    background-color: #000000;
     color: #f0f0f0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    overflow: hidden; /* Evita rolar a página */
+    overflow: hidden;
 }
 
-/* === Imagem de Fundo (Se você tiver a imagem) === */
 body::before {
     content: "";
     position: fixed;
@@ -25,24 +24,128 @@ body::before {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url('imagens/batman.fundo.jpg'); /* O caminho da sua imagem */
+    background-image: url('imagens/batman.fundo.jpg'); 
     background-size: cover;
     background-position: center;
-
     z-index: -1;
+    opacity: 0.5; /* Deixei um pouco transparente para o terminal brilhar mais */
 }
 
 /* === Contêiner Principal === */
 .main-container {
     width: 90%;
     max-width: 750px;
-    background-color: rgba(10, 12, 18, 0.85); /* Fundo tático translúcido */
-    border: 2px solid #ffc60b; /* Borda Ciano Fria */
+    background-color: rgba(10, 12, 18, 0.85);
+    border: 2px solid #ffc60b;
     border-radius: 5px;
     padding: 30px;
-    box-shadow: 0 0 20px rgba(27, 27, 24, 0.3); /* Brilho neon sutil */
+    box-shadow: 0 0 20px rgba(27, 27, 24, 0.3);
 }
 
+/* === O MORCEGO GLITCH / PIXEL ART (Baseado na Imagem) === */
+.bat-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.bat {
+    width: 4px;
+    height: 4px;
+    background: transparent;
+    position: relative;
+    left: -10px; 
+    
+    /* JUNTANDO AS ANIMAÇÕES:
+       1. bat-flap: Bate as asas a cada 0.4s (alterando o box-shadow)
+       2. holograma-corrompido: Faz o glitch a cada 4s (alterando transform/filter) */
+    animation: bat-flap 0.4s steps(1) infinite, holograma-corrompido 4s infinite;
+}
+
+/* === ANIMAÇÃO 1: BATER DE ASAS (Alterna o formato dos pixels) === */
+@keyframes bat-flap {
+    /* ESTADO 1: Asas para CIMA (Seu código original) */
+    0%, 100% {
+        box-shadow:
+            /* Orelhas e Cabeça */
+            -12px -24px black, -8px -24px black, -12px -20px black, -8px -20px black, -4px -20px black,
+            8px -32px black, 12px -32px black, 8px -28px black, 12px -28px black, 8px -24px black, 12px -24px black, 16px -24px black,
+            0px -20px black, 4px -20px black, 8px -20px black, 12px -20px black, 16px -20px black,
+            /* Corpo e Olhos */
+            -16px -16px black, -12px -16px black, -8px -16px black, -4px -16px black, 0px -16px black, 4px -16px black, 8px -16px black, 12px -16px black, 16px -16px black, 20px -16px black,
+            -20px -12px black, -16px -12px black, -12px -12px black, -8px -12px black, -4px -12px black, 0px -12px black, 4px -12px black, 8px -12px black, 12px -12px black, 16px -12px black, 20px -12px black, 24px -12px black,
+            -24px -8px black, -20px -8px black, -16px -8px black, -12px -8px black, -4px -8px black, 0px -8px black, 8px -8px black, 12px -8px black, 16px -8px black, 20px -8px black, 24px -8px black, 28px -8px black,
+            -28px -4px black, -24px -4px black, -20px -4px black, -16px -4px black, -12px -4px black, -8px -4px black, -4px -4px black, 0px -4px black, 4px -4px black, 8px -4px black, 12px -4px black, 16px -4px black, 20px -4px black, 24px -4px black, 28px -4px black, 32px -4px black,
+            /* Asas Superiores/Abertura */
+            -32px 0px black, -28px 0px black, -24px 0px black, -20px 0px black, -16px 0px black, -12px 0px black, -8px 0px black, -4px 0px black, 0px 0px black, 4px 0px black, 8px 0px black, 12px 0px black, 16px 0px black, 20px 0px black, 24px 0px black, 28px 0px black, 32px 0px black, 36px 0px black,
+            -32px 4px black, -28px 4px black, -24px 4px black, -20px 4px black, -16px 4px black, -12px 4px black, -8px 4px black, -4px 4px black, 0px 4px black, 4px 4px black, 8px 4px black, 12px 4px black, 16px 4px black, 20px 4px black, 24px 4px black, 28px 4px black, 32px 4px black, 36px 4px black, 40px 4px black,
+            /* Asas Descendo */
+            -32px 8px black, -28px 8px black, -24px 8px black, -20px 8px black, -16px 8px black, -12px 8px black, 12px 8px black, 16px 8px black, 20px 8px black, 24px 8px black, 28px 8px black, 32px 8px black, 36px 8px black, 40px 8px black,
+            -32px 12px black, -28px 12px black, -24px 12px black, -20px 12px black, -16px 12px black, 16px 12px black, 20px 12px black, 24px 12px black, 28px 12px black, 32px 12px black, 36px 12px black, 40px 12px black,
+            -32px 16px black, -28px 16px black, -24px 16px black, -20px 16px black, 20px 16px black, 24px 16px black, 28px 16px black, 32px 16px black, 36px 16px black, 40px 16px black,
+            -28px 20px black, -24px 20px black, -20px 20px black, 24px 20px black, 28px 20px black, 32px 20px black, 36px 20px black, 40px 20px black,
+            -28px 24px black, -24px 24px black, -20px 24px black, 24px 24px black, 28px 24px black, 32px 24px black, 36px 24px black,
+            -24px 28px black, -20px 28px black, 28px 28px black, 32px 28px black, 36px 28px black,
+            -20px 32px black, 28px 32px black, 32px 32px black,
+            /* Partículas / Glitch */
+            -36px -8px black, -44px 16px black, -32px 20px black, 48px -4px black, 48px 16px black, 52px 16px black, 48px 24px black, -12px 36px black, 16px 44px black;
+    }
+
+    /* ESTADO 2: Asas para BAIXO (Centro mantido, laterais deslocadas para baixo) */
+    50% {
+        box-shadow:
+            /* Orelhas e Corpo Central (Iguais ao Estado 1) */
+            -12px -24px black, -8px -24px black, -12px -20px black, -8px -20px black, -4px -20px black,
+            8px -32px black, 12px -32px black, 8px -28px black, 12px -28px black, 8px -24px black, 12px -24px black, 16px -24px black,
+            0px -20px black, 4px -20px black, 8px -20px black, 12px -20px black, 16px -20px black,
+            -16px -16px black, -12px -16px black, -8px -16px black, -4px -16px black, 0px -16px black, 4px -16px black, 8px -16px black, 12px -16px black, 16px -16px black, 20px -16px black,
+            -12px -12px black, -8px -12px black, -4px -12px black, 0px -12px black, 4px -12px black, 8px -12px black, 12px -12px black, 16px -12px black,
+            -12px -8px black, -4px -8px black, 0px -8px black, 8px -8px black, 12px -8px black, 16px -8px black,
+            -12px -4px black, -8px -4px black, -4px -4px black, 0px -4px black, 4px -4px black, 8px -4px black, 12px -4px black, 16px -4px black,
+            -12px 0px black, -8px 0px black, -4px 0px black, 0px 0px black, 4px 0px black, 8px 0px black, 12px 0px black, 16px 0px black,
+            -12px 4px black, -8px 4px black, -4px 4px black, 0px 4px black, 4px 4px black, 8px 4px black, 12px 4px black, 16px 4px black,
+            -12px 8px black, 12px 8px black, 16px 8px black,
+            
+            /* LATERAIS DAS ASAS JOGADAS PARA BAIXO (+12px no eixo Y) */
+            -20px 0px black, -16px 0px black, 20px 0px black, 24px 0px black,
+            -24px 4px black, -20px 4px black, -16px 4px black, 20px 4px black, 24px 4px black, 28px 4px black,
+            -28px 8px black, -24px 8px black, -20px 8px black, -16px 8px black, 20px 8px black, 24px 8px black, 28px 8px black, 32px 8px black,
+            -32px 12px black, -28px 12px black, -24px 12px black, -20px 12px black, -16px 12px black, 20px 12px black, 24px 12px black, 28px 12px black, 32px 12px black, 36px 12px black,
+            -32px 16px black, -28px 16px black, -24px 16px black, -20px 16px black, -16px 16px black, 20px 16px black, 24px 16px black, 28px 16px black, 32px 16px black, 36px 16px black, 40px 16px black,
+            -32px 20px black, -28px 20px black, -24px 20px black, -20px 20px black, -16px 20px black, 20px 20px black, 24px 20px black, 28px 20px black, 32px 20px black, 36px 20px black, 40px 20px black,
+            -32px 24px black, -28px 24px black, -24px 24px black, -20px 24px black, 20px 24px black, 24px 24px black, 28px 24px black, 32px 24px black, 36px 24px black, 40px 24px black,
+            -28px 28px black, -24px 28px black, -20px 28px black, 24px 28px black, 28px 28px black, 32px 28px black, 36px 28px black, 40px 28px black,
+            -28px 32px black, -24px 32px black, -20px 32px black, 24px 32px black, 28px 32px black, 32px 32px black, 36px 32px black,
+            -24px 36px black, -20px 36px black, 28px 36px black, 32px 36px black, 36px 36px black,
+            -20px 40px black, 28px 40px black, 32px 40px black,
+            
+            /* Partículas / Glitch descem junto com o movimento da asa */
+            -36px 4px black, -44px 28px black, -32px 32px black, 48px 8px black, 48px 28px black, 52px 28px black, 48px 36px black, -12px 48px black, 16px 56px black;
+    }
+}
+
+/* === ANIMAÇÃO 2: GLITCH E FLUTUAÇÃO (Aplica distorções visuais) === */
+@keyframes holograma-corrompido {
+    0%, 100% { transform: translateY(0); opacity: 1; filter: drop-shadow(0 0 5px rgba(255, 198, 11, 0.4)); }
+    20% { transform: translateY(-6px); filter: drop-shadow(0 0 10px rgba(255, 198, 11, 0.7)); }
+    40% { transform: translateY(-2px); }
+
+    /* Curto-circuito rápido */
+    41% { transform: translate(4px, -4px) skewX(15deg); opacity: 0.5; filter: drop-shadow(-4px 0 0px red) drop-shadow(4px 0 0px cyan); }
+    42% { transform: translate(-4px, -2px) skewX(-15deg); opacity: 0.9; filter: drop-shadow(0 0 20px #ffc60b); }
+    43% { transform: translate(2px, -6px) skewX(5deg); opacity: 0.3; filter: drop-shadow(-2px 0 0px red); }
+    45% { transform: translateY(-4px) skewX(0); opacity: 1; filter: drop-shadow(0 0 5px rgba(255, 198, 11, 0.4)); }
+    
+    60% { transform: translateY(4px); filter: drop-shadow(0 0 8px rgba(255, 198, 11, 0.6)); }
+    80% { transform: translateY(0); }
+
+    /* Falha de opacidade */
+    81% { opacity: 1; }
+    82% { opacity: 0.1; } 
+    83% { opacity: 1; }
+}
 /* === Cabeçalho e Título === */
 .console-header {
     text-align: left;
@@ -51,9 +154,7 @@ body::before {
     padding-bottom: 10px;
 }
 
-.bat-prefix {
-    color: #fffb00; /* Ciano brilhante */
-}
+.bat-prefix { color: #000000; }
 
 .console-header h1 {
     display: inline;
@@ -63,7 +164,7 @@ body::before {
 }
 
 .console-header p {
-    color: #8090a0; /* Cinza azulado frio */
+    color: #8090a0;
     font-size: 0.9em;
 }
 
@@ -81,21 +182,13 @@ body::before {
     margin-bottom: 30px;
 }
 
-label {
-    font-size: 1em;
-    color: #eeff00;
-}
+label { font-size: 1em; color: #eeff00; }
 
-/* Efeito de piscar o sublinhado */
-.blink {
-    animation: blinker 1s linear infinite;
-}
-@keyframes blinker {
-    50% { opacity: 0; }
-}
+.blink { animation: blinker 1s linear infinite; }
+@keyframes blinker { 50% { opacity: 0; } }
 
 input {
-    background-color: #0d1117; /* Fundo escuro */
+    background-color: #0d1117;
     border: 1px solid rgba(238, 255, 4, 0.5);
     color: #fffb00;
     padding: 15px;
@@ -110,7 +203,6 @@ input:focus {
     box-shadow: 0 0 10px rgba(0, 204, 204, 0.5);
 }
 
-/* === Botão Tático === */
 button {
     background-color: transparent;
     border: 2px solid #fbff00;
@@ -121,8 +213,6 @@ button {
     cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
-    position: relative;
-    overflow: hidden;
 }
 
 button:hover {
@@ -131,40 +221,47 @@ button:hover {
     box-shadow: 0 0 20px rgba(221, 235, 235, 0.7);
 }
 
-/* === Resultados (Estilo de Erro/Acesso Tático) === */
+/* === Resultados === */
 .resultado {
-    display: none; /* Começa escondido */
+    display: none;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 20px;
     margin-top: 10px;
     border-radius: 5px;
-    border-left: 5px solid; /* Usamos a borda esquerda para indicar o status */
+    border-left: 5px solid;
     line-height: 1.6;
     font-size: 0.95em;
 }
 
-/* [STATUS: DENIED] // Acesso Negado (Roxo Escuro e Frio) */
-.result-error {
-    border-color: #9400d3; /* Roxo escuro */
-    color: #e0d0f0;
-}
+.result-error { border-color: #9400d3; color: #e0d0f0; }
 .result-error strong { color: #bf80ff; }
-
-/* [STATUS: FACULTATIVE] // Voto Opcional (Ciano Frio) */
-.result-facultative {
-    border-color: #00cccc;
-    color: #f0f0f0;
-}
+.result-facultative { border-color: #00cccc; color: #f0f0f0; }
 .result-facultative strong { color: #00ffff; }
-
-/* [STATUS: MANDATORY] // Voto Obrigatório (Verde Tático Escuro) */
-.result-mandatory {
-    border-color: #1a7c33; /* Verde tático escuro */
-    color: #e0f0e0;
-}
+.result-mandatory { border-color: #1a7c33; color: #e0f0e0; }
 .result-mandatory strong { color: #00cc66; }
 
-/* === Rodapé === */
+/* === Navegação e Rodapé === */
+.navigation-panel {
+    margin-top: 20px;
+}
+
+.btn-voltar {
+    color: #ffc60b;
+    text-decoration: none;
+    font-size: 0.9em;
+    border: 1px solid rgba(255, 198, 11, 0.3);
+    padding: 8px 12px;
+    border-radius: 3px;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn-voltar:hover {
+    background-color: #ffc60b;
+    color: #000;
+    box-shadow: 0 0 15px rgba(255, 198, 11, 0.5);
+}
+
 .console-footer {
     text-align: left;
     margin-top: 30px;
@@ -172,11 +269,4 @@ button:hover {
     padding-top: 10px;
     font-size: 0.8em;
     color: #ffffff;
-}
-
-.btn-voltar:hover {
-    background-color: #fffc50;
-    color: #0a0c12;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-    transform: translateY(-2px); /* Pequeno pulo para cima no hover */
 }
