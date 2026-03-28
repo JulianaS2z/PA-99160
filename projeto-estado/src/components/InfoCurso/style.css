@@ -1,0 +1,54 @@
+/* Importando uma fonte fofinha (opcional, mas faz toda a diferença!) */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+.info-curso {
+  /* Cores e Fundo */
+  background-color: #ffe4e1; /* Fundo rosa bem clarinho (Misty Rose) */
+  color: #555555; /* Texto cinza escuro para ficar suave na leitura */
+  font-family: 'Nunito', sans-serif;
+  
+  /* Formato e Tamanho */
+  max-width: 320px;
+  margin: 40px auto; /* Centraliza na tela */
+  padding: 30px;
+  border-radius: 30px; /* Bordas bem redondinhas */
+  border: 3px dashed #ffb6c1; /* Borda tracejada rosa chiclete */
+  text-align: center;
+  
+  /* Sombra suave */
+  box-shadow: 0 10px 25px rgba(255, 182, 193, 0.4);
+  
+  /* Animação para o hover */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito quando o mouse passa por cima (dá um pulinho) */
+.info-curso:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(255, 182, 193, 0.6);
+}
+
+.info-curso h2 {
+  color: #ff69b4; /* Título em Hot Pink */
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 1.6rem;
+  letter-spacing: 0.5px;
+}
+
+/* Estilizando cada linha de informação como se fosse uma "pílula" */
+.info-curso p {
+  background-color: #ffffff; /* Fundo branco para destacar o texto */
+  padding: 12px 20px;
+  margin: 12px 0;
+  border-radius: 20px; /* Pílulas redondinhas */
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03); /* Sombrinha bem leve */
+  border: 1px solid #fff0f5;
+  
+  /* Alinhando o texto à esquerda dentro da pílula, mas mantendo a pílula centralizada */
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+}

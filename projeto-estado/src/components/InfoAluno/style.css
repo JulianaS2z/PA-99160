@@ -1,0 +1,57 @@
+/* Importando a fonte fofinha */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+/* Estilo principal do cartão do Aluno */
+.info-aluno {
+  background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%); /* Degradê Lilás para Azul */
+  color: #4a4a4a;
+  font-family: 'Nunito', sans-serif;
+  
+  max-width: 320px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 25px;
+  text-align: center;
+  
+  box-shadow: 0 12px 24px rgba(142, 197, 252, 0.4);
+  transition: transform 0.3s ease;
+}
+
+/* Dá um pulinho quando passa o mouse */
+.info-aluno:hover {
+  transform: translateY(-5px);
+}
+
+/* Título em branco com uma sombrinha suave */
+.info-aluno h2 {
+  color: #ffffff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+}
+
+/* Caixinhas de informação */
+.info-aluno p {
+  background-color: rgba(255, 255, 255, 0.85); /* Branco meio transparente */
+  padding: 12px 15px;
+  margin: 12px 0;
+  border-radius: 12px;
+  border-left: 6px solid #8ba4e8; /* Bordinha azul na esquerda */
+  text-align: left; /* Alinha o texto à esquerda */
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+/* Efeito de deslizar para o lado */
+.info-aluno p:hover {
+  transform: translateX(8px);
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilizando a tag <strong> que você usou no código */
+.info-aluno p strong {
+  font-weight: 700;
+  color: #3b4b8a; /* Azul um pouquinho mais escuro para facilitar a leitura */
+}
