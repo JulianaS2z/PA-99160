@@ -1,0 +1,31 @@
+.card-personagem {
+
+  background: linear-gradient(135deg, #ffe4e1 0%, #ffb6c1 100%);
+  border: 3px solid #ff99cc; 
+  border-radius: 20px; 
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2); 
+  color: #4a235a; 
+  font-family: 'Comic Sans MS', 'Fredoka One', cursive, sans-serif; 
+  transition: transform 0.3s ease; 
+}
+
+
+.card-personagem:hover {
+  transform: translateY(-5px) scale(1.03); /* O card "flutua" e cresce um pouquinho */
+  box-shadow: 0 8px 15px rgba(255, 105, 180, 0.4);
+}
+
+/* Ajustes no texto dentro do card */
+.detalhes p {
+  margin: 10px 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Destaque para os títulos (Nome, Gem, Arma) */
+.detalhes strong {
+  color: #d81b60; /* Um rosa/magenta mais escuro e forte */
+  font-size: 18px;
+}

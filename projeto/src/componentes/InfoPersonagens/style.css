@@ -1,0 +1,47 @@
+/* Container principal do card */
+.card-personagem {
+  /* Fundo com imagem */
+  background-image: url('/fundo.png');
+  background-size: cover;
+  background-position: center;
+  /* Um degradê rosa bem suave, no estilo Rose Quartz (sobreposto se necessário) */
+  background: linear-gradient(135deg, rgba(255, 228, 225, 0.8) 0%, rgba(255, 182, 193, 0.8) 100%), url('/fundo.png');
+  border: 3px solid #ff99cc; /* Borda um pouco mais forte, lembrando gemas */
+  border-radius: 20px; /* Cantos bem arredondados e fofos */
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2); /* Sombreado rosa */
+  color: #4a235a; /* Roxo escuro para o texto dar contraste (estilo Ametista) */
+  font-family: 'Comic Sans MS', 'Fredoka One', cursive, sans-serif; /* Fonte divertida */
+  transition: transform 0.3s ease; /* Prepara para a animação */
+}
+
+/* Efeito mágico quando passa o mouse por cima */
+.card-personagem:hover {
+  transform: translateY(-5px) scale(1.03); /* O card "flutua" e cresce um pouquinho */
+  box-shadow: 0 8px 15px rgba(255, 105, 180, 0.4);
+}
+
+/* Ajustes no texto dentro do card */
+.detalhes p {
+  margin: 10px 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Destaque para os títulos (Nome, Gem, Arma) */
+.detalhes strong {
+  color: #d81b60; /* Um rosa/magenta mais escuro e forte */
+  font-size: 18px;
+}
+
+/* Logo no meio do texto (exemplo: no h3) */
+.card-personagem h3 {
+  background-image: url('/logo.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 20px; /* Espaço para a logo */
+  text-align: center;
+  color: transparent; /* Torna o texto invisível para mostrar a logo */
+}
