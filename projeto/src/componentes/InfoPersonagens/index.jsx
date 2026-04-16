@@ -2,10 +2,13 @@ import './style.css';
 
 function InfoPersonagens({ nome, gem, arma }) {
   return (
-    <div className="personagem-card">
+    <div className="card-personagem">
       <h3>{nome}</h3>
-      <p><strong>Gem:</strong> {gem}</p>
-      <p><strong>Arma:</strong> {arma}</p>
+      <div className="detalhes">
+        <p><strong>Nome:</strong> {nome}</p>
+        <p><strong>Gem:</strong> {gem}</p>
+        <p><strong>Arma:</strong> {arma}</p>
+      </div>
     </div>
   );
 }
