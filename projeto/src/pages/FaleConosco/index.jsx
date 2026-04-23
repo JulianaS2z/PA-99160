@@ -1,4 +1,4 @@
-import '.s/style.css'
+import './style.css'
 
 export default function FaleConosco() {
     function handleSubmit(e) {

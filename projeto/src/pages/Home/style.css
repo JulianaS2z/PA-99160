@@ -1,0 +1,59 @@
+/* Seção Principal (Hero) */
+.hero-section {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  text-align: center;
+  padding: 6rem 2rem;
+  background-image: linear-gradient(rgba(15, 43, 70, 0.9), rgba(15, 43, 70, 0.9)), url('../../assets/sua-imagem-de-fundo.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  color: #cbd5e1;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+}
+
+/* Grade de Serviços */
+.services-section {
+  padding: 5rem 5%;
+  text-align: center;
+}
+
+.services-section h2 {
+  color: var(--primary-blue);
+  margin-bottom: 3rem;
+  font-size: 2rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 4px solid var(--accent-gold);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-card h3 {
+  color: var(--primary-blue);
+  margin-bottom: 1rem;
+}
