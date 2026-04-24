@@ -1,0 +1,47 @@
+.about-section {
+  padding: 4rem 5%;
+  min-height: calc(100vh - 180px);
+  background-color: var(--bg-light);
+}
+
+.about-card {
+  background-color: var(--white);
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 16px 40px rgba(15, 43, 70, 0.08);
+}
+
+.about-card h1 {
+  color: var(--primary-blue);
+  font-size: 2.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.about-card p {
+  color: var(--text-dark);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.about-card ul {
+  display: grid;
+  gap: 1rem;
+  padding-left: 1.25rem;
+}
+
+.about-card li {
+  color: var(--text-dark);
+  font-weight: 600;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.about-card li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent-gold);
+}

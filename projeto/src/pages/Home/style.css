@@ -1,59 +1,78 @@
-/* Seção Principal (Hero) */
 .hero-section {
   background-color: var(--primary-blue);
   color: var(--white);
   text-align: center;
-  padding: 6rem 2rem;
-  background-image: linear-gradient(rgba(15, 43, 70, 0.9), rgba(15, 43, 70, 0.9)), url('../../assets/sua-imagem-de-fundo.jpg');
+  padding: 5rem 2rem;
+  background-image: linear-gradient(rgba(15, 43, 70, 0.95), rgba(15, 43, 70, 0.95));
   background-size: cover;
   background-position: center;
 }
 
-.hero-section h1 {
-  font-size: 2.5rem;
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.hero-tag {
+  display: inline-block;
   margin-bottom: 1rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+}
+
+.hero-section h1 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: 1rem;
+  line-height: 1.1;
 }
 
 .hero-section p {
-  font-size: 1.2rem;
-  color: #cbd5e1;
-  max-width: 600px;
-  margin: 0 auto 2rem auto;
+  font-size: 1.1rem;
+  color: #d7e2f1;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
-/* Grade de Serviços */
 .services-section {
-  padding: 5rem 5%;
+  padding: 4rem 5%;
   text-align: center;
+  background-color: var(--white);
 }
 
 .services-section h2 {
   color: var(--primary-blue);
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   font-size: 2rem;
 }
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
 }
 
 .service-card {
-  background-color: var(--white);
+  background-color: var(--bg-light);
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(15, 43, 70, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-top: 4px solid var(--accent-gold);
+  border-left: 4px solid var(--accent-gold);
+  text-align: left;
 }
 
 .service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(15, 43, 70, 0.12);
 }
 
 .service-card h3 {
   color: var(--primary-blue);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.service-card p {
+  color: var(--text-dark);
+  line-height: 1.7;
 }
