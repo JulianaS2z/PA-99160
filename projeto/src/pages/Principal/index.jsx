@@ -1,6 +1,6 @@
 import './style.css'
 
-export default function Home() {
+export default function Principal() {
     return (
         <main className="home-page">
             <section className="hero-section">

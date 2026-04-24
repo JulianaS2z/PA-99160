@@ -23,6 +23,9 @@ export default function Header() {
                         <NavLink to="/sobre-nos">Sobre nós</NavLink>
                     </li>
                     <li>
+                        <NavLink to="/produto">Produtos</NavLink>
+                    </li>
+                    <li>
                         <NavLink to="/fale-conosco">Fale conosco</NavLink>
                     </li>
                 </ul>
