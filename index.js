@@ -25,6 +25,30 @@ const Cliente = sequelize.define('Cliente', {
     }
 })
 
+const Produtos = sequelize.define('Produtos', {
+
+    nome: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+
+    quantidade: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+
+    lote: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        unique: true
+    },
+
+    preco: {
+        type: DataTypes.FLOAT,
+        allowNull: false
+    }
+})
+
 // CONFIGURANDO SERVIDOR EXPRESS.
 
 const app = express()
@@ -36,9 +60,16 @@ const port = 3000
 // DEFININDO ROTAS.
 
 app.get('/clientes', async (req, res) => {
-    const todosOsClentes = await Cliente.findAll()
+    const todosOsClientes = await Cliente.findAll()
     res.json(todosOsClientes)
 })
+
+app.get('/produtos', async (req, res) => {
+    const todosOsProdutos = await Produtos.findAll()
+    res.json(todosOsProdutos)
+})
+
+
 
 // Rota para cadastrar um cliente e inserir no banco de dados 
 app.post('/clientes', async (req, res) => {
@@ -56,6 +87,24 @@ app.post('/clientes', async (req, res) => {
         })
     }
 })
+
+app.post('/produtos', async (req, res) => {
+    try {
+        const { nome, quantidade, lote, preco } = req.body
+        const novoProdutos = await Produtos.create({ nome, quantidade, lote, preco })
+
+        res.status(201).json({
+            mensagem: 'Produto cadastrado com sucesso.',
+            produtos: novoProdutos
+        })
+    } catch (erro) {
+        res.status(400).json({
+            mensagem: 'Erro ao cadastrar produto.',
+        })
+    }
+})
+
+
 
 // INICIAR API E CONECTAR AO BANCO DE DADOS 
 sequelize.sync().then(() => {
