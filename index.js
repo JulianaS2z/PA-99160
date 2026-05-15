@@ -49,6 +49,63 @@ const Produtos = sequelize.define('Produtos', {
     }
 })
 
+const Motos = sequelize.define('Motos', {
+
+    nome: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+
+    marca: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+
+    cilindrada: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+
+    ano_do_modelo: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+
+    tipo_de_motor: {
+        type: DataTypes.STRING,
+        allowNull: false
+    }
+})
+
+const Carros = sequelize.define('Carros', {
+
+    nome: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+
+    marca: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+
+    quilometragem: {
+        type: DataTypes.FLOAT,
+        allowNull: false,
+    },
+
+    ano_do_modelo: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+
+    combustivel: {
+        type: DataTypes.STRING,
+        allowNull: false
+    }
+})
+
+
 // CONFIGURANDO SERVIDOR EXPRESS.
 
 const app = express()
@@ -67,6 +124,16 @@ app.get('/clientes', async (req, res) => {
 app.get('/produtos', async (req, res) => {
     const todosOsProdutos = await Produtos.findAll()
     res.json(todosOsProdutos)
+})
+
+app.get('/motos', async (req, res) => {
+    const todosASMotos = await motos.findAll()
+    res.json(todosASMotos)
+})
+
+app.get('/carros', async (req,res) => {
+    const todosOsCarros = await carros.findAll()
+    res.json(todosOsCarros)
 })
 
 
@@ -100,6 +167,39 @@ app.post('/produtos', async (req, res) => {
     } catch (erro) {
         res.status(400).json({
             mensagem: 'Erro ao cadastrar produto.',
+        })
+    }
+})
+
+
+app.post('/motos', async (req, res) => {
+    try {
+        const { nome, marca, cilindrada, ano_do_modelo, tipo_de_motor } = req.body
+        const novaMotos = await Motos.create({ nome, marca, cilindrada, ano_do_modelo, tipo_de_motor })
+
+        res.status(201).json({
+            mensagem: 'Nova moto criada.',
+            motos: novaMotos
+        })
+    } catch (erro) {
+        res.status(400).json({
+            mensagem: 'Erro ao cadastrar moto.',
+        })
+    }
+})
+
+app.post('/carros', async (req, res) => {
+    try {
+        const { nome, marca, quilometragem, ano_do_modelo, combustivel } = req.body
+        const novoCarros = await Carros.create({ nome, marca, quilometragem, ano_do_modelo, combustivel })
+
+        res.status(201).json({
+            mensagem: 'Novo carro criado.',
+            carros: novoCarros
+        })
+    } catch (erro) {
+        res.status(400).json({
+            mensagem: 'Erro ao cadastrar carro.',
         })
     }
 })
