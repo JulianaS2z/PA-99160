@@ -3,215 +3,170 @@ const cors = require('cors')
 const { Sequelize, DataTypes } = require('sequelize')
 
 // CONFIGURANDO CONEXÃO COM BANCO DE DADOS.
-const sequelize = new Sequelize('db_api', 'root', '', {
+const sequelize = new Sequelize('test', 'root', '', {
     host: 'localhost',
     dialect: 'mysql'
 })
 
-// ORM - MAPEANDO CLASSE PARA RABELA NO BANCO DE DADOS.
-const Cliente = sequelize.define('Cliente', {
+// ORM - MAPEANDO CLASSE PARA TABELA NO BANCO DE DADOS.
+const Alunos = sequelize.define('Alunos', {
     nome: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    email: {
+    email_instituicional: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true
     },
-    telefone: {
-        type: DataTypes.STRING,
-        allowNull: false
-    }
-})
-
-const Produtos = sequelize.define('Produtos', {
-
-    nome: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-
-    quantidade: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-    },
-
-    lote: {
+    matricula: {
         type: DataTypes.INTEGER,
         allowNull: false,
         unique: true
     },
-
-    preco: {
-        type: DataTypes.FLOAT,
+    turma: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    turno: {
+        type: DataTypes.STRING,
         allowNull: false
     }
 })
 
-const Motos = sequelize.define('Motos', {
-
+const Professores = sequelize.define('Professores', {
     nome: {
         type: DataTypes.STRING,
         allowNull: false
     },
-
-    marca: {
+    email_instituicional: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true
     },
-
-    cilindrada: {
+    rf: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        unique: true
     },
-
-    ano_do_modelo: {
-        type: DataTypes.INTEGER,
+    especialidade: {
+        type: DataTypes.STRING,
         allowNull: false
     },
-
-    tipo_de_motor: {
+    turmas_de_aulas: {
         type: DataTypes.STRING,
         allowNull: false
     }
 })
 
-const Carros = sequelize.define('Carros', {
-
-    nome: {
+const Cursos = sequelize.define('Cursos', {
+    titulo: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+    },
+    descricao: {
         type: DataTypes.STRING,
         allowNull: false
+    
     },
-
-    marca: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-
-    quilometragem: {
-        type: DataTypes.FLOAT,
-        allowNull: false,
-    },
-
-    ano_do_modelo: {
+    carga_horaria: {
         type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+    modalidade: {
+        type: DataTypes.INTEGER, 
         allowNull: false
     },
-
-    combustivel: {
-        type: DataTypes.STRING,
+    vagas: {
+        type: DataTypes.STRING, 
         allowNull: false
     }
 })
-
 
 // CONFIGURANDO SERVIDOR EXPRESS.
-
 const app = express()
-app.use(cors()) // permite o front-end acessar a API.
-app.use(express.json()) // permite o servidor entender JSON,
+app.use(cors()) 
+app.use(express.json()) 
 
 const port = 3000
 
-// DEFININDO ROTAS.
-
-app.get('/clientes', async (req, res) => {
-    const todosOsClientes = await Cliente.findAll()
-    res.json(todosOsClientes)
+// DEFININDO ROTAS GET.
+app.get('/alunos', async (req, res) => {
+    const todosOsAlunos = await Alunos.findAll()
+    res.json(todosOsAlunos)
 })
 
-app.get('/produtos', async (req, res) => {
-    const todosOsProdutos = await Produtos.findAll()
-    res.json(todosOsProdutos)
+app.get('/professores', async (req, res) => {
+    const todosOsProfessores = await Professores.findAll()
+    res.json(todosOsProfessores)
 })
 
-app.get('/motos', async (req, res) => {
-    const todosASMotos = await motos.findAll()
-    res.json(todosASMotos)
+app.get('/cursos', async (req, res) => {
+    const todosOsCursos = await Cursos.findAll()
+    res.json(todosOsCursos)
 })
 
-app.get('/carros', async (req,res) => {
-    const todosOsCarros = await carros.findAll()
-    res.json(todosOsCarros)
-})
-
-
-
-// Rota para cadastrar um cliente e inserir no banco de dados 
-app.post('/clientes', async (req, res) => {
+// DEFININDO ROTAS POST.
+app.post('/alunos', async (req, res) => {
     try {
-        const { nome, email, telefone } = req.body
-        const novoCliente = await Cliente.create({ nome, email, telefone })
+        const { nome, email_instituicional, matricula, turma, turno } = req.body
+        
+        const novoAluno = await Alunos.create({ nome, email_instituicional, matricula, turma, turno })
 
         res.status(201).json({
-            mensagem: 'Cliente cadastrado com sucesso.',
-            cliente: novoCliente
+            mensagem: 'Novo aluno cadastrado.',
+            Aluno: novoAluno
         })
     } catch (erro) {
         res.status(400).json({
-            mensagem: 'Erro ao cadastrar cliente. Verifique se o e-mail já existe',
+            mensagem: 'Erro ao cadastrar aluno. Verifique se o e-mail ou matrícula já existe.',
+            detalhe: erro.message
         })
     }
 })
 
-app.post('/produtos', async (req, res) => {
+app.post('/professores', async (req, res) => {
     try {
-        const { nome, quantidade, lote, preco } = req.body
-        const novoProdutos = await Produtos.create({ nome, quantidade, lote, preco })
+        const { nome, email_instituicional, rf, especialidade, turmas_de_aulas } = req.body
+        const novoProfessor = await Professores.create({ nome, email_instituicional, rf, especialidade, turmas_de_aulas })
 
         res.status(201).json({
-            mensagem: 'Produto cadastrado com sucesso.',
-            produtos: novoProdutos
+            mensagem: 'Novo professor cadastrado.', // CORRIGIDO: Mensagem de retorno
+            Professor: novoProfessor
         })
     } catch (erro) {
         res.status(400).json({
-            mensagem: 'Erro ao cadastrar produto.',
+            mensagem: 'Erro ao cadastrar professor. Verifique se o e-mail ou RF já existe.',
+            detalhe: erro.message
         })
     }
 })
 
-
-app.post('/motos', async (req, res) => {
+app.post('/cursos', async (req, res) => {
     try {
-        const { nome, marca, cilindrada, ano_do_modelo, tipo_de_motor } = req.body
-        const novaMotos = await Motos.create({ nome, marca, cilindrada, ano_do_modelo, tipo_de_motor })
+        const { titulo, descricao, carga_horaria, modalidade, vagas } = req.body
+
+        const novoCurso = await Cursos.create({ titulo, descricao, carga_horaria, modalidade, vagas })
 
         res.status(201).json({
-            mensagem: 'Nova moto criada.',
-            motos: novaMotos
+            mensagem: 'Novo curso criado.',
+            Curso: novoCurso
         })
     } catch (erro) {
         res.status(400).json({
-            mensagem: 'Erro ao cadastrar moto.',
+            mensagem: 'Erro ao cadastrar o curso. Verifique se o título já existe.',
+            detalhe: erro.message
         })
     }
 })
-
-app.post('/carros', async (req, res) => {
-    try {
-        const { nome, marca, quilometragem, ano_do_modelo, combustivel } = req.body
-        const novoCarros = await Carros.create({ nome, marca, quilometragem, ano_do_modelo, combustivel })
-
-        res.status(201).json({
-            mensagem: 'Novo carro criado.',
-            carros: novoCarros
-        })
-    } catch (erro) {
-        res.status(400).json({
-            mensagem: 'Erro ao cadastrar carro.',
-        })
-    }
-})
-
-
 
 // INICIAR API E CONECTAR AO BANCO DE DADOS 
 sequelize.sync().then(() => {
     app.listen(port, () => {
-        console.log(`👌Servidor rodando em http://localhost:${port}`)
+        console.log(`👌 Servidor rodando em http://localhost:${port}`)
         console.log('✳️ Banco de dados sincronizado.')
     })
 }).catch((erro) => {
-    console.error('❌ Erro ao conectar ou sincronizar com o banco de dados')
+    console.error('❌ Erro ao conectar ou sincronizar com o banco de dados:', erro)
 })
